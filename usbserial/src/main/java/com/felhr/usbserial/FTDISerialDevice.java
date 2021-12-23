@@ -60,7 +60,7 @@ public class FTDISerialDevice extends UsbSerialDevice
 
     /***
      *  Default Serial Configuration
-     *  Baud rate: 9600
+     *  Baud rate: 115200
      *  Data bits: 8
      *  Stop bits: 1
      *  Parity: None
@@ -471,7 +471,7 @@ public class FTDISerialDevice extends UsbSerialDevice
             return false;
         if(setControlCommand(FTDI_SIO_SET_FLOW_CTRL, FTDI_SET_FLOW_CTRL_DEFAULT, 0) < 0)
             return false;
-        if(setControlCommand(FTDI_SIO_SET_BAUD_RATE, FTDI_BAUDRATE_9600, 0) < 0)
+        if(setControlCommand(FTDI_SIO_SET_BAUD_RATE, FTDI_BAUDRATE_115200, 0) < 0)
             return false;
 
         // Flow control disabled by default
@@ -926,7 +926,7 @@ public class FTDISerialDevice extends UsbSerialDevice
         else if(baudRate > 921600)
             value = FTDI_BAUDRATE_921600;
         else
-            value = FTDI_BAUDRATE_9600;
+            value = FTDI_BAUDRATE_115200;
 
         setControlCommand(FTDI_SIO_SET_BAUD_RATE, value, 0);
     }

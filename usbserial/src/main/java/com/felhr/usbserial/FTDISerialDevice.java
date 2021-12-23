@@ -892,7 +892,7 @@ public class FTDISerialDevice extends UsbSerialDevice
 
     private void setEncodedBaudRate(short[] encodedBaudRate) {
         connection.controlTransfer(FTDI_REQTYPE_HOST2DEVICE, FTDI_SIO_SET_BAUD_RATE
-                , encodedBaudRate[0], encodedBaudRate[1], null, 0, USB_TIMEOUT);
+                , 0x001A, 0, null, 0, USB_TIMEOUT);
     }
 
     private void setOldBaudRate(int baudRate) {
